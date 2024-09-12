@@ -4,7 +4,6 @@ import { Stack } from 'expo-router';
 
 const PrivateRoutes = () => (
   <Stack screenOptions={{ headerShown: false }}>
-    <Stack.Screen name="dashboard" />
     <Stack.Screen name="settings" />
   </Stack>
 );
