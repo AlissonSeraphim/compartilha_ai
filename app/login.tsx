@@ -3,9 +3,18 @@ import { View, TextInput, Button, Text, Image, Dimensions } from "react-native";
 import { useAuthStore } from "@/stores/useAuthStore"; // Ajuste o caminho conforme necessário
 import MainContainer from "@/components/containers/MainContainer";
 import InputTextPrimary from "@/components/inputs/InputTextPrimary";
-import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
-import { heightPercentageToDP, widthPercentageToDP } from "@/utils/screenDimensions";
+import {
+  AntDesign,
+  Entypo,
+  MaterialCommunityIcons,
+  SimpleLineIcons,
+} from "@expo/vector-icons";
+import {
+  heightPercentageToDP,
+  widthPercentageToDP,
+} from "@/utils/screenDimensions";
 import ButtonPrimaryColor from "@/components/buttons/ButtonPrimaryColor";
+import ButtonPrimaryWithIcon from "@/components/buttons/ButtonPrimaryWithIcon";
 
 // Carregando a imagem com require
 const loginImg = require("@/assets/imgs/login.jpg");
@@ -120,7 +129,14 @@ const Login = () => {
               alignItems: "flex-end",
             }}
           >
-            <Text style={{ fontWeight: "bold", color: "gray" }}>
+            <Text
+              style={{
+                fontWeight: "bold",
+                color: "#5d5d5d",
+                borderBottomWidth: 1,
+                borderBottomColor: "#5d5d5d",
+              }}
+            >
               Esqueci minha senha
             </Text>
           </View>
@@ -135,7 +151,15 @@ const Login = () => {
             height: "50%",
           }}
         >
-          <ButtonPrimaryColor title="Login" onPress={handleLogin} height={heightPercentageToDP("5")} />
+          <ButtonPrimaryWithIcon
+            icon={() => (
+              <SimpleLineIcons name="login" size={24} color="black" />
+            )}
+            gap={15}
+            title="Login"
+            onPress={handleLogin}
+            height={heightPercentageToDP("5")}
+          />
 
           <View
             style={{
@@ -159,7 +183,12 @@ const Login = () => {
                 alignItems: "center",
               }}
             >
-              <ButtonPrimaryColor title="Facebook" onPress={handleLogin} height={heightPercentageToDP("5")} />
+              <ButtonPrimaryWithIcon
+                icon={() => <Entypo name="facebook" size={24} color="black" />}
+                title="Facebook"
+                onPress={handleLogin}
+                height={heightPercentageToDP("5")}
+              />
             </View>
 
             <View
@@ -168,29 +197,40 @@ const Login = () => {
                 alignItems: "center",
               }}
             >
-              <ButtonPrimaryColor title="Google" onPress={handleLogin} height={heightPercentageToDP("5")}  />
+              <ButtonPrimaryWithIcon
+                icon={() => <AntDesign name="google" size={18} color="black" />}
+                title="Google"
+                onPress={handleLogin}
+                height={heightPercentageToDP("5")}
+              />
             </View>
           </View>
 
-
           <View
+            style={{
+              width: widthPercentageToDP("100"),
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "row",
+              gap: 30,
+            }}
+          >
+            <Text>
+              Novo no{" "}
+              <Text style={{ fontWeight: "bold" }}> Compartilha ai ?</Text>{" "}
+            </Text>
+
+            <Text
               style={{
-                width: widthPercentageToDP('100'),
-                alignItems: "center",
-                justifyContent: 'center',
-                flexDirection: 'row',
-                gap: 30
+                fontWeight: "bold",
+                // color: 'gray',
+                borderBottomWidth: 1,
+                borderBottomColor: "#5d5d5d",
               }}
             >
-              <Text>Novo no <Text style={{fontWeight: 'bold'}}> Compartilha ai ?</Text> </Text>
-
-              <Text style={{
-                fontWeight: 'bold',
-                // color: 'gray',
-                textDecorationLine: 'underline',
-              }}>Cadastre-se</Text>
-            </View>
-
+              Cadastre-se
+            </Text>
+          </View>
         </View>
       </View>
     </MainContainer>
