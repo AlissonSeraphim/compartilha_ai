@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, Text } from 'react-native';
 import { useAuthStore } from '@/stores/useAuthStore'; // Ajuste o caminho conforme necessário
+import MainContainer from '@/components/containers/MainContainer';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -8,13 +9,11 @@ const Login = () => {
   const { login } = useAuthStore();
 
   const handleLogin = () => {
-    // Adicione sua lógica de autenticação aqui
-    // Se a autenticação for bem-sucedida, chame login()
     login();
   };
 
   return (
-    <View style={{ padding: 20 }}>
+    <MainContainer>      
       <Text>Email:</Text>
       <TextInput 
         placeholder="Email"
@@ -31,7 +30,7 @@ const Login = () => {
         style={{ borderBottomWidth: 1, marginBottom: 10 }}
       />
       <Button title="Login" onPress={handleLogin} />
-    </View>
+    </MainContainer>
   );
 };
 
