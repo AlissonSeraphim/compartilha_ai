@@ -4,9 +4,11 @@ import { Pressable, PressableProps, Text } from "react-native";
 const ButtonPrimaryColor = ({
   title,
   onPress,
+  height
 }: {
   title: string;
   onPress: PressableProps["onPress"];
+  height?: number;
 }) => {
   return (
     <Pressable
@@ -16,7 +18,7 @@ const ButtonPrimaryColor = ({
         shadowOffset: { width: 0, height: 4 },
         backgroundColor: "#d42e27",
         width: '90%',
-        height: 50,
+        height: height ? height : 50,
         alignItems: "center",
         justifyContent: "center",
       }}
