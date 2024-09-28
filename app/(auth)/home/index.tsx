@@ -72,11 +72,16 @@ const Home = () => {
               style={{
                 fontSize: 20,
                 fontWeight: "bold",
+                color: "white",
               }}
             >
               Olá, Alisson
             </Text>
-            <Text>
+            <Text
+              style={{
+                color: "white",
+              }}
+            >
               Gerencie, Divida e acesse assinaturas de multiplos acessos com
               seus amigos &#x1F60A;{" "}
             </Text>
@@ -95,13 +100,13 @@ const Home = () => {
           borderRadius: 20,
           top: -heightPercentageToDP("2"),
           alignSelf: "center",
-          backgroundColor: 'white',
+          backgroundColor: "white",
           shadowColor: "#000",
           shadowOffset: { width: 0, height: 5 },
           shadowOpacity: 0.3,
           shadowRadius: 5,
           elevation: 5,
-          paddingTop: 5
+          paddingTop: 5,
         }}
       >
         <Text

@@ -9,12 +9,12 @@ const AvatarWithInitials = ({ initials = "" }: { initials: string }) => {
           width: 60,
           height: 60,
           borderRadius: 50,
-          backgroundColor: "#E0E0E0",
+          backgroundColor: "white",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
-        <Text style={{ fontSize: 25, color: "#212121", letterSpacing: 2  }}>{initials}</Text>
+        <Text style={{ fontSize: 25, color: "#212121", letterSpacing: 3, fontWeight: 'bold'  }}>{initials}</Text>
       </View>
     </View>
   );
