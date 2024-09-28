@@ -50,31 +50,157 @@ const Home = () => {
           style={{
             alignItems: "center",
             flex: 1,
-            width: '100%',
+            width: "100%",
             borderBottomLeftRadius: 20,
             borderBottomRightRadius: 20,
             flexDirection: "row",
             gap: 20,
-            justifyContent: 'center',
+            justifyContent: "center",
             paddingLeft: 30,
           }}
         >
+          <AvatarWithInitials initials="AT" />
 
-          <AvatarWithInitials initials="AT"  />
-
-
-          <View style={{
-            flexDirection: 'column',
-            gap: 5,
-            width: '80%',
-          }}>
-            <Text style={{
-              fontSize: 20,
-              fontWeight: 'bold'
-            }}>Olá, Alisson</Text>
-            <Text>Gerencie, Divida e acesse assinaturas de multiplos acessos com seus amigos &#x1F60A; </Text>
+          <View
+            style={{
+              flexDirection: "column",
+              gap: 5,
+              width: "80%",
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 20,
+                fontWeight: "bold",
+              }}
+            >
+              Olá, Alisson
+            </Text>
+            <Text>
+              Gerencie, Divida e acesse assinaturas de multiplos acessos com
+              seus amigos &#x1F60A;{" "}
+            </Text>
           </View>
-          
+        </View>
+      </View>
+    );
+  };
+
+  const HeaderCard = () => {
+    return (
+      <View
+        style={{
+          height: heightPercentageToDP("10"),
+          width: widthPercentageToDP("80"),
+          borderRadius: 20,
+          top: -heightPercentageToDP("2"),
+          alignSelf: "center",
+          backgroundColor: 'white',
+          shadowColor: "#000",
+          shadowOffset: { width: 0, height: 5 },
+          shadowOpacity: 0.3,
+          shadowRadius: 5,
+          elevation: 5,
+          paddingTop: 5
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 16,
+            textAlign: "center",
+          }}
+        >
+          Grupos
+        </Text>
+
+        <View
+          style={{
+            width: "100%",
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "row",
+            borderBottomLeftRadius: 20,
+            borderBottomRightRadius: 20,
+          }}
+        >
+          <View
+            style={{
+              width: "30%",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 22,
+                fontWeight: "bold",
+              }}
+            >
+              10
+            </Text>
+
+            <Text
+              style={{
+                fontSize: 14,
+              }}
+            >
+              Pertencentes
+            </Text>
+          </View>
+
+          <View
+            style={{
+              width: "30%",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 22,
+                fontWeight: "bold",
+              }}
+            >
+              4
+            </Text>
+
+            <Text
+              style={{
+                fontSize: 14,
+              }}
+            >
+              Criados
+            </Text>
+          </View>
+
+          <View
+            style={{
+              width: "30%",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 22,
+                fontWeight: "bold",
+              }}
+            >
+              12
+            </Text>
+
+            <Text
+              style={{
+                fontSize: 14,
+              }}
+            >
+              Pendentes
+            </Text>
+          </View>
         </View>
       </View>
     );
@@ -89,6 +215,7 @@ const Home = () => {
         }}
       >
         <HomeHeader />
+        <HeaderCard />
         <Text>Home</Text>
       </View>
     </MainContainer>
