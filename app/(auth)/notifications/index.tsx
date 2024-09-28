@@ -2,7 +2,7 @@ import MainContainer from "@/components/containers/MainContainer";
 import React, { useState } from "react";
 import { View, Text } from "react-native";
 
-const Home = () => {
+const Notifications = () => {
   return (
     <MainContainer> 
       <View style={{
@@ -11,10 +11,10 @@ const Home = () => {
         width: '95%',
       }}>
 
-      <Text>Home</Text>
+      <Text>Notifications</Text>
       </View>
     </MainContainer>
   );
 };
 
-export default Home;
+export default Notifications;
