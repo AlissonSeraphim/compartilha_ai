@@ -13,8 +13,12 @@ import {
   TouchableOpacity,
 } from "react-native-gesture-handler";
 import { View } from "react-native";
+import { iconColor } from "@/styles";
 
 const LayoutAuthRoutes = () => {
+
+
+
   return (
     <Tabs
       initialRouteName="home/index"
@@ -26,6 +30,7 @@ const LayoutAuthRoutes = () => {
           alignItems: "center",
           paddingBottom: 10,
         },
+        tabBarActiveTintColor: iconColor
       }}
     >
       <Tabs.Screen
