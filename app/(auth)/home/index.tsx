@@ -7,7 +7,7 @@ import {
 } from "@/utils/screenDimensions";
 import { Entypo } from "@expo/vector-icons";
 import React, { useState } from "react";
-import { View, Text } from "react-native";
+import { View, Text, Image, FlatList } from "react-native";
 
 const Home = () => {
   const HomeHeader = () => {
@@ -211,6 +211,62 @@ const Home = () => {
     );
   };
 
+  const EachSubscriptionCard = () => {
+    return (
+      <View
+        style={{
+          height: heightPercentageToDP("20"),
+          width: widthPercentageToDP("40"),
+          borderRadius: 20,
+          alignSelf: "center",
+          backgroundColor: "white",
+          shadowColor: "#000",
+          shadowOffset: { width: 0, height: 5 },
+          shadowOpacity: 0.3,
+          shadowRadius: 5,
+          elevation: 5,
+          paddingTop: 5,
+        }}
+      >
+        <View style={{
+          flex: 1,
+        }}>
+
+        <Image
+          // src='https://www.behance.net/gallery/29632909/Random-Logo-1'
+          source={
+          {
+            uri: 'https://plus.unsplash.com/premium_photo-1666901328734-3c6eb9b6b979?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+          }
+          }
+          // source={require('../../../assets/images/react-logo.png')}
+          style={{
+            // width: 400,
+            // height: 400,
+            // minHeight: 400,
+            // minWidth: 400,
+            resizeMode: 'contain',
+            alignSelf: "center",
+          }}
+        />
+        </View>
+
+        <Text
+          style={{
+            fontSize: 16,
+            textAlign: "center",
+          }}
+        >
+          Logo
+        </Text>
+
+        <View>
+          <Text>Texto 1</Text>
+        </View>
+      </View>
+    );
+  };
+
   return (
     <MainContainer>
       <View
@@ -222,6 +278,45 @@ const Home = () => {
         <HomeHeader />
         <HeaderCard />
         <Text>Home</Text>
+        <View style={{
+          backgroundColor: 'red',
+          display: 'flex',
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+
+        <FlatList
+          data={['1', '2', '3', '4', '1', '2', '3', '4']}
+          keyExtractor={item => item}
+          numColumns={2}
+          style={{
+            backgroundColor: 'blue',
+            display: 'flex',
+            flex: 1,
+            width: '100%',
+          }}
+          contentContainerStyle={{
+            backgroundColor: 'yellow',
+            alignItems: 'center',
+            paddingVertical: 12,
+            paddingHorizontal: 2,
+          }}
+          ListFooterComponent={<View style={{ height: 30 }} />}
+          renderItem={({ item, index }) => {
+            return (
+              <View // espaçamento manual
+              style={{
+                marginBottom: 8, // Espaçamento vertical
+                marginRight: index % 2 === 0 ? 24 : 0, // Espaçamento horizontal para itens à esquerda
+              }}
+            >
+              <EachSubscriptionCard />
+              </View>
+            );
+          }}
+        />
+        </View>
       </View>
     </MainContainer>
   );
