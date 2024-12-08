@@ -28,7 +28,7 @@ const Home = () => {
           height: heightPercentageToDP("20"),
           borderBottomLeftRadius: 20,
           borderBottomRightRadius: 20,
-          width: widthPercentageToDP("99"),
+          width: widthPercentageToDP("100"),
         }}
       >
         <View
@@ -482,18 +482,6 @@ const Home = () => {
               onPress={() => setSelectedButton("pendentes")}
             />
           </View>
-
-          {/* <Button
-            onPress={() => Alert.alert("Button with adjusted color pressed")}
-            title="Criados"
-            // color="#841584"
-          />
-
-          <Button
-            onPress={() => Alert.alert("Button with adjusted color pressed")}
-            title="Pendentes"
-            // color="#841584"
-          /> */}
         </View>
 
         <View
