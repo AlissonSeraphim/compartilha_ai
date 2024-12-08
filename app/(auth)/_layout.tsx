@@ -13,7 +13,7 @@ import {
   TouchableOpacity,
 } from "react-native-gesture-handler";
 import { View } from "react-native";
-import { iconColor } from "@/styles";
+import { iconColor, primaryColor, secondaryColor } from "@/styles";
 
 const LayoutAuthRoutes = () => {
 
@@ -74,7 +74,7 @@ const LayoutAuthRoutes = () => {
                   elevation: 5,
                 }}
               >
-                <AntDesign name="pluscircleo" size={30} color={"black"} />
+                <AntDesign name="pluscircleo" size={30} color={primaryColor} />
               </TouchableOpacity>
             </GestureHandlerRootView>
           ),

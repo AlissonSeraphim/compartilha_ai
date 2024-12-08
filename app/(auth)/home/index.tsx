@@ -1,4 +1,5 @@
 import AvatarWithInitials from "@/components/avatar/avatar";
+import ButtonPrimaryColor from "@/components/buttons/ButtonPrimaryColor";
 import MainContainer from "@/components/containers/MainContainer";
 import { primaryColor, secondaryColor } from "@/styles";
 import {
@@ -7,7 +8,16 @@ import {
 } from "@/utils/screenDimensions";
 import { Entypo } from "@expo/vector-icons";
 import React, { useState } from "react";
-import { View, Text, Image, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  FlatList,
+  Switch,
+  Button,
+  Alert,
+  Pressable,
+} from "react-native";
 
 const Home = () => {
   const HomeHeader = () => {
@@ -102,7 +112,7 @@ const Home = () => {
           alignSelf: "center",
           backgroundColor: "white",
           shadowColor: "#000",
-          shadowOffset: { width: 0, height: 5 },
+          shadowOffset: { width: 5, height: 5 },
           shadowOpacity: 0.3,
           shadowRadius: 5,
           elevation: 5,
@@ -225,45 +235,189 @@ const Home = () => {
           shadowOpacity: 0.3,
           shadowRadius: 5,
           elevation: 5,
-          paddingTop: 5,
+          // paddingTop: 5,
+          paddingVertical: 5,
+          justifyContent: "space-around",
+          flexDirection: "column",
         }}
       >
-        <View style={{
-          flex: 1,
-        }}>
-
-        <Image
-          // src='https://www.behance.net/gallery/29632909/Random-Logo-1'
-          source={
-          {
-            uri: 'https://plus.unsplash.com/premium_photo-1666901328734-3c6eb9b6b979?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-          }
-          }
-          // source={require('../../../assets/images/react-logo.png')}
+        {/* <View
           style={{
-            // width: 400,
-            // height: 400,
-            // minHeight: 400,
-            // minWidth: 400,
-            resizeMode: 'contain',
-            alignSelf: "center",
+            // backgroundColor: "red",
+            height: "40%",
+            // borderRadius: 100,
+            alignItems: "center",
+            justifyContent: "center",
           }}
-        />
-        </View>
+        >
+          <Text
+            style={{
+              fontSize: 20,
+              textAlign: "center",
+              fontWeight: "bold",
+            }}
+          >
+            Os Netflixos
+          </Text>
+        </View> */}
 
         <Text
           style={{
-            fontSize: 16,
+            fontSize: 20,
             textAlign: "center",
+            fontWeight: "bold",
+            paddingTop: 10,
           }}
         >
-          Logo
+          Os Netflixos
         </Text>
 
-        <View>
-          <Text>Texto 1</Text>
+        <View
+          style={{
+            display: "flex",
+            // backgroundColor: 'blue',
+            height: "60%",
+            gap: 4,
+            justifyContent: "center",
+            paddingHorizontal: 4,
+          }}
+        >
+          <View
+            style={{
+              alignItems: "center",
+              justifyContent: "space-between",
+              flexDirection: "row",
+              paddingHorizontal: 8
+            }}
+          >
+            <Text>Valor:</Text>
+            <Text>R$ 9,90</Text>
+          </View>
+
+          <View
+            style={{
+              alignItems: "center",
+              justifyContent: "space-between",
+              flexDirection: "row",
+              paddingHorizontal: 8
+            }}
+          >
+            <Text>Pagar até:</Text>
+            <Text>26/08/2024</Text>
+          </View>
+
+          <View
+            style={{
+              alignItems: "center",
+              gap: 4,
+              paddingTop: 8,
+            }}
+          >
+            <View
+              style={{
+                flexDirection: "row",
+                width: "100%",
+                gap: 4,
+                justifyContent: "center",
+              }}
+            >
+              <Text>Participantes</Text>
+            </View>
+
+            <View
+              style={{
+                flexDirection: "row",
+                width: "100%",
+                justifyContent: 'space-around'
+              }}
+            >
+              <AvatarWithInitials
+                initials="AT"
+                width={24}
+                height={24}
+                fontSize={12}
+                backgroundColor="#a0a0a0"
+              />
+              <AvatarWithInitials
+                initials="AT"
+                width={24}
+                height={24}
+                fontSize={12}
+                backgroundColor="#a0a0a0"
+              />
+              <AvatarWithInitials
+                initials="AT"
+                width={24}
+                height={24}
+                fontSize={12}
+                backgroundColor="#a0a0a0"
+              />
+              <AvatarWithInitials
+                initials="AT"
+                width={24}
+                height={24}
+                fontSize={12}
+                backgroundColor="#a0a0a0"
+              />
+              <AvatarWithInitials
+                initials="AT"
+                width={24}
+                height={24}
+                fontSize={12}
+                backgroundColor="#a0a0a0"
+              />
+              <AvatarWithInitials
+                initials="AT"
+                width={24}
+                height={24}
+                fontSize={12}
+                backgroundColor="#a0a0a0"
+              />
+            </View>
+          </View>
         </View>
       </View>
+    );
+  };
+
+  const [selectedButton, setSelectedButton] = useState("pertencente");
+
+  const disabledButton1 = selectedButton != "pertencente";
+  const disabledButton2 = selectedButton != "criados";
+  const disabledButton3 = selectedButton != "pendentes";
+
+  const SwitchButton = ({
+    isDisabled = false,
+    title = "N/A",
+    onPress = () => {},
+  }) => {
+    console.log("isDisabled =>", isDisabled);
+    return (
+      <Pressable
+        style={{
+          borderRadius: 24,
+          elevation: isDisabled ? undefined : 8,
+          shadowOffset: isDisabled ? undefined : { width: 0, height: 4 },
+          backgroundColor: isDisabled ? "#a0a0a0" : "#d42e27",
+          width: "100%",
+          height: 50,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+        // disabled={isDisabled}
+        onPress={onPress}
+      >
+        <Text
+          style={{
+            fontSize: isDisabled ? 14 : 16,
+            fontWeight: "bold",
+            lineHeight: isDisabled ? 14 : 18,
+            color: "white",
+          }}
+        >
+          {title}
+        </Text>
+      </Pressable>
     );
   };
 
@@ -277,45 +431,110 @@ const Home = () => {
       >
         <HomeHeader />
         <HeaderCard />
-        <Text>Home</Text>
-        <View style={{
-          backgroundColor: 'red',
-          display: 'flex',
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-
-        <FlatList
-          data={['1', '2', '3', '4', '1', '2', '3', '4']}
-          keyExtractor={item => item}
-          numColumns={2}
+        {/* <Text>Switch Grupos</Text> */}
+        <View
           style={{
-            backgroundColor: 'blue',
-            display: 'flex',
+            display: "flex",
+            // backgroundColor: "red",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "row",
+            // gap: 16,
+          }}
+        >
+          <View
+            style={{
+              width: 140,
+              left: 20,
+              zIndex: disabledButton1 ? 0 : 1,
+            }}
+          >
+            <SwitchButton
+              isDisabled={disabledButton1}
+              title="Pertencente"
+              onPress={() => setSelectedButton("pertencente")}
+            />
+          </View>
+
+          <View
+            style={{
+              width: 160,
+              zIndex: disabledButton2 ? 0 : 1,
+            }}
+          >
+            <SwitchButton
+              isDisabled={disabledButton2}
+              title="Criados"
+              onPress={() => setSelectedButton("criados")}
+            />
+          </View>
+
+          <View
+            style={{
+              width: 140,
+              right: 20,
+              zIndex: disabledButton3 ? 0 : 1,
+            }}
+          >
+            <SwitchButton
+              isDisabled={disabledButton3}
+              title="Pendentes"
+              onPress={() => setSelectedButton("pendentes")}
+            />
+          </View>
+
+          {/* <Button
+            onPress={() => Alert.alert("Button with adjusted color pressed")}
+            title="Criados"
+            // color="#841584"
+          />
+
+          <Button
+            onPress={() => Alert.alert("Button with adjusted color pressed")}
+            title="Pendentes"
+            // color="#841584"
+          /> */}
+        </View>
+
+        <View
+          style={{
+            // backgroundColor: "red",
+            display: "flex",
             flex: 1,
-            width: '100%',
+            justifyContent: "center",
+            alignItems: "center",
           }}
-          contentContainerStyle={{
-            backgroundColor: 'yellow',
-            alignItems: 'center',
-            paddingVertical: 12,
-            paddingHorizontal: 2,
-          }}
-          ListFooterComponent={<View style={{ height: 30 }} />}
-          renderItem={({ item, index }) => {
-            return (
-              <View // espaçamento manual
-              style={{
-                marginBottom: 8, // Espaçamento vertical
-                marginRight: index % 2 === 0 ? 24 : 0, // Espaçamento horizontal para itens à esquerda
-              }}
-            >
-              <EachSubscriptionCard />
-              </View>
-            );
-          }}
-        />
+        >
+          <FlatList
+            data={["1", "2", "3", "4", "1", "2", "3", "4"]}
+            keyExtractor={(item) => item}
+            numColumns={2}
+            style={{
+              // backgroundColor: "blue",
+              display: "flex",
+              flex: 1,
+              width: "100%",
+            }}
+            contentContainerStyle={{
+              // backgroundColor: "yellow",
+              alignItems: "center",
+              paddingVertical: 12,
+              paddingHorizontal: 2,
+            }}
+            ListFooterComponent={<View style={{ height: 30 }} />}
+            renderItem={({ item, index }) => {
+              return (
+                <View // espaçamento manual
+                  style={{
+                    marginBottom: 8, // Espaçamento vertical
+                    marginRight: index % 2 === 0 ? 24 : 0, // Espaçamento horizontal para itens à esquerda
+                  }}
+                >
+                  <EachSubscriptionCard />
+                </View>
+              );
+            }}
+          />
         </View>
       </View>
     </MainContainer>
