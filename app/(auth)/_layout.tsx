@@ -1,6 +1,13 @@
 // app/_layout.tsx
 import React, { useEffect } from "react";
-import { Slot, Stack, Tabs, useRouter, useSegments } from "expo-router";
+import {
+  Redirect,
+  Slot,
+  Stack,
+  Tabs,
+  useRouter,
+  useSegments,
+} from "expo-router";
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import {
   AntDesign,
@@ -14,10 +21,14 @@ import {
 } from "react-native-gesture-handler";
 import { View } from "react-native";
 import { iconColor, primaryColor, secondaryColor } from "@/styles";
+import { useAuthStore } from "@/stores/useAuthStore";
 
 const LayoutAuthRoutes = () => {
+  const { isAuthenticated } = useAuthStore();
 
-
+  if (!isAuthenticated) {
+    return <Redirect href={"/login"} />;
+  }
 
   return (
     <Tabs
@@ -30,7 +41,7 @@ const LayoutAuthRoutes = () => {
           alignItems: "center",
           paddingBottom: 10,
         },
-        tabBarActiveTintColor: iconColor
+        tabBarActiveTintColor: iconColor,
       }}
     >
       <Tabs.Screen

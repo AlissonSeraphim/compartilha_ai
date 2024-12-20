@@ -435,7 +435,7 @@ const Home = () => {
         <View
           style={{
             display: "flex",
-            // backgroundColor: "red",
+            width: widthPercentageToDP('100'),
             alignItems: "center",
             justifyContent: "center",
             flexDirection: "row",
@@ -444,7 +444,7 @@ const Home = () => {
         >
           <View
             style={{
-              width: 140,
+              width: '30%',
               left: 20,
               zIndex: disabledButton1 ? 0 : 1,
             }}
@@ -458,7 +458,7 @@ const Home = () => {
 
           <View
             style={{
-              width: 160,
+              width: '40%',
               zIndex: disabledButton2 ? 0 : 1,
             }}
           >
@@ -471,7 +471,7 @@ const Home = () => {
 
           <View
             style={{
-              width: 140,
+              width: '30%',
               right: 20,
               zIndex: disabledButton3 ? 0 : 1,
             }}
